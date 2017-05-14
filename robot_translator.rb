@@ -40,7 +40,8 @@ def translate_phrase(phrase)
 end
 
 # User Interface
-loop do
+inputted_phrase = ""
+while inputted_phrase != 'q' do
   puts "Enter a phrase you would like to translate to robot speak: (or type 'q' to quit)"
   inputted_phrase = gets.chomp
   break if inputted_phrase == 'q'
