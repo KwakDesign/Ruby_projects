@@ -10,14 +10,17 @@
 
 # "Happy Halloween!" => "bloopbeepbeepbeepbeepboingbloopbeepbeepbeepbeepbeepbuzzbuzzbeepboing"
 
+# Business Logic
+
 def translate_char(char)
   alphabet = "abcdefghijklmnopqrstuvwxyz"
   halfway = alphabet.length / 2
   is_capitalized = (char.upcase == char)
+  index_of_char = alphabet.index(char.downcase)
 
-  if !alphabet.index(char.downcase)
+  if !index_of_char
     "boing"
-  elsif is_capitalized && alphabet.index(char.downcase) < halfway
+  elsif is_capitalized && index_of_char < halfway
     "bloop"
   elsif is_capitalized || char == "e"
     "buzz"
@@ -37,9 +40,12 @@ def translate_phrase(phrase)
 end
 
 # User Interface
-
-
-
+loop do
+  puts "Enter a phrase you would like to translate to robot speak: (or type 'q' to quit)"
+  inputted_phrase = gets.chomp
+  break if inputted_phrase == 'q'
+  puts translate_phrase(inputted_phrase)
+end
 
 
 
